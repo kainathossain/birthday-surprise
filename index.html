@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Surprise ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #080812;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+
+section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+}
+
+h1 {
+    font-size: clamp(45px, 8vw, 90px);
+}
+
+h2 {
+    font-size: clamp(35px, 6vw, 60px);
+    margin-bottom: 25px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 1px, transparent 2px),
+        radial-gradient(circle at 70% 30%, #ffffff 1px, transparent 2px),
+        radial-gradient(circle at 40% 80%, #ffffff 1px, transparent 2px),
+        radial-gradient(circle at 90% 70%, #ffffff 1px, transparent 2px);
+    background-size: 180px 180px;
+    opacity: .35;
+}
+
+
+
+#opening {
+    background:
+        radial-gradient(circle at center, #3d174f, #10091b 45%, #050509);
+}
+
+.opening-content {
+    animation: fadeIn 2s ease;
+}
+
+.small-text {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 13px;
+    opacity: .7;
+    margin-bottom: 20px;
+}
+
+.opening-content h1 {
+    background: linear-gradient(90deg, #fff, #ffb7d9, #fff);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 20px;
+    opacity: .8;
+    margin-bottom: 40px;
+}
+
+.main-btn {
+    border: none;
+    padding: 17px 35px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff4f91, #a855f7);
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 10px 35px rgba(255, 79, 145, .35);
+    transition: .3s;
+}
+
+.main-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 45px rgba(255, 79, 145, .6);
+}
+
+/* =========================
+   MEMORY
+========================= */
+
+#memories {
+    background: linear-gradient(#10091b, #160b22);
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.memory {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: .4s;
+}
+
+.memory:hover {
+    transform: translateY(-12px) rotate(1deg);
+}
+
+.memory img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.memory h3 {
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+.memory p {
+    opacity: .7;
+    font-size: 14px;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+#quiz {
+    background: linear-gradient(#160b22, #0b0b17);
+}
+
+.quiz-box {
+    max-width: 650px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.question {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.answers {
+    display: grid;
+    gap: 15px;
+}
+
+.answer {
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.05);
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 16px;
+}
+
+.answer:hover {
+    background: rgba(255, 79, 145, .25);
+    transform: scale(1.03);
+}
+
+#quiz-result {
+    margin-top: 25px;
+    font-size: 20px;
+    min-height: 30px;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+#letter {
+    background: radial-gradient(circle, #35163e, #0b0710);
+}
+
+.envelope {
+    width: 320px;
+    height: 210px;
+    margin: 40px auto;
+    background: #e9a7c0;
+    position: relative;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transition: .5s;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 120px solid #d77f9e;
+}
+
+.heart-seal {
+    position: absolute;
+    z-index: 3;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 45px;
+}
+
+.letter-content {
+    display: none;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 40px;
+    background: #fff8f2;
+    color: #351b28;
+    border-radius: 10px;
+    text-align: left;
+    animation: letterOpen 1s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+.letter-content p {
+    margin-bottom: 18px;
+}
+
+/* =========================
+   GIFTS
+========================= */
+
+#gifts {
+    background: linear-gradient(#0b0b17, #170c20);
+}
+
+.gift-grid {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 45px;
+}
+
+.gift {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #ff4f91, #a855f7);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    cursor: pointer;
+    transition: .4s;
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
+}
+
+.gift:hover {
+    transform: translateY(-15px) rotate(4deg);
+}
+
+.gift-message {
+    margin-top: 35px;
+    min-height: 70px;
+    font-size: 20px;
+    color: #ffb7d9;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+#final {
+    background:
+        radial-gradient(circle at center, #541b4e, #160817 45%, #050509);
+    overflow: hidden;
+}
+
+.final-content {
+    position: relative;
+    z-index: 2;
+}
+
+.final-content h1 {
+    background: linear-gradient(90deg, #ff8fc7, #fff, #ff8fc7);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: glow 2s infinite alternate;
+}
+
+.final-message {
+    font-size: 22px;
+    max-width: 650px;
+    margin: 30px auto;
+    opacity: .85;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    pointer-events: none;
+    animation: floatUp 5s linear forwards;
+    z-index: 10;
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    color: white;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes letterOpen {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff4f91;
+    }
+    to {
+        text-shadow: 0 0 40px #ff4f91;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-box {
+        padding: 25px;
+    }
+
+    .envelope {
+        width: 280px;
+    }
+
+    .envelope::before {
+        border-left-width: 140px;
+        border-right-width: 140px;
+    }
+
+    .gift {
+        width: 140px;
+        height: 140px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- =========================
+     BACKGROUND MUSIC
+========================= -->
+
+<audio id="music" loop>
+     <source src="birthday song.mp3" type="audio/mpeg">
+    <!-- Put your music file here -->
+    <!-- Example:
+    <source src="birthday-song.mp3" type="audio/mpeg">
+    -->
+</audio>
+
+<button class="music-btn" onclick="toggleMusic(birthday song.mp3)">🎵</button>
+
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<section id="opening">
+
+    <div class="opening-content">
+
+        <div class="small-text">
+            A little something for you
+        </div>
+
+        <!-- CHANGE NAME HERE -->
+        <h1>Hey, Saiful ❤️</h1>
+
+        <p class="subtitle">
+            Someone has prepared a little surprise...
+        </p>
+
+        <button class="main-btn" onclick="startSurprise()">
+            🎁 Unlock Your Surprise
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMORIES
+========================= -->
+
+<section id="memories">
+
+<div class="container">
+
+    <div class="small-text">
+        Chapter One
+    </div>
+
+    <h2>Our Little Memories 📸</h2>
+
+    <p>
+        Some moments are ordinary when they happen...
+        until they become memories.
+    </p>
+
+    <div class="memory-grid">
+
+        <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="beginning.jpeg">
+
+            <h3>The Beginning</h3>
+
+            <p>
+                The very first picture of us but the beginning remains the most beautiful part of us🫶🏻.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="cutie.jpeg">
+
+            <h3>Cutie day 🥰🥰</h3>
+
+            <p>
+                The day I realised that you are an absolute cutie and I am responsible to take care of you for life😤
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="bike rides .jpeg">
+
+            <h3>The Bike Rides ❤️</h3>
+
+            <p>
+                The bike rides where we had endless arguments, fights, and dating destinations where you take me to.
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="me is cute.jpeg">
+
+            <h3>Place where you looked soanpapdi🫶🏻</h3>
+
+            <p>
+                Beside you every minute every second becomes quite and time sweeps so fast i wish i could freeze the 
+                moments we spent together alone 🥹🥹🥹🥹
+            </p>
+
+        </div>
+           <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="saiful smol size.jpeg">
+
+            <h3>The Mini You<3 </h3>
+
+            <p>
+                you were so cute then and now still... you are the cutest being in this entire universe i wish i could cuddle you always🥹
+            </p>
+
+        </div>
+        <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="funny.jpeg">
+
+            <h3>You looked funny here🤣 </h3>
+
+            <p>
+         Here you looked funny to me not becoz you helf that fish's throat like that but you looked some random guy from odissa who is also a fisherman🤣.
+            </p>
+
+        </div>
+        <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="fineshyt.jpeg">
+
+            <h3>You looked finest here 🫶🏻</h3>
+
+            <p>
+                The picture i can stare for hours and still not get bored of it🥹 cz you looked the finest here.
+            </p>
+
+        </div>
+         <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="egg.jpeg">
+
+            <h3>Ubla hua anda 😞</h3>
+
+            <p>
+                Idk but i wanted to add this picture here i think you looked like an boiled egg 😞
+            </p>
+
+        </div>
+        <div class="memory">
+
+            <!-- CHANGE IMAGE -->
+            <img src="anda aloo.jpeg">
+
+            <h3>anda aloo ki jodi😆</h3>
+
+            <p>
+                i love being crazy with you but you don't like its okay baccha call karu????😞
+            </p>
+
+        </div>
+         </div>
+           
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<section id="quiz">
+
+<div class="container">
+
+    <div class="small-text">
+        Chapter Two
+    </div>
+
+    <h2>Let's See How Well You Know Me 👀</h2>
+
+    <div class="quiz-box">
+
+        <div class="question">
+            What do I probably love the most?
+        </div>
+
+        <div class="answers">
+
+            <button class="answer" onclick="checkAnswer(false)">
+                pizza ?🍕
+            </button>
+
+            <button class="answer" onclick="checkAnswer(true)">
+                You ?❤️
+            </button>
+
+            <button class="answer" onclick="checkAnswer(false)">
+                Sleeping ?😴
+            </button>
+
+            <button class="answer" onclick="checkAnswer(false)">
+                fighting?💰
+            </button>
+
+        </div>
+
+        <div id="quiz-result"></div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section id="letter">
+
+<div class="container">
+
+    <div class="small-text">
+        Chapter Three
+    </div>
+
+    <h2>There's Something I Want To Say 💌</h2>
+
+    <p>
+        But you'll have to open it yourself...
+    </p>
+
+
+    <div class="envelope" onclick="openLetter()">
+
+        <div class="heart-seal">
+            ❤️
+        </div>
+
+    </div>
+
+
+    <div class="letter-content" id="letterContent">
+
+        <!-- CHANGE THIS LETTER -->
+
+        <p>
+            Hey Saiful🫀,
+        </p>
+
+        <p>
+            I don't really know where to begin, because there are
+            some people who become important without us even
+            realizing when it happened.I know you are dissapointed and 
+            angry right now but believe there is no other person apart from your family
+            who would love you the way i do, i'm sorry for hurting you please accept my apologies 
+            i will never hurt you again ever.
+        </p>
+
+        <p>
+            You've given me so many memories, laughs, conversations,
+            and moments that I wouldn't trade for anything. You made me laugh
+            when i overthought things. Tum Bohot zyda hi khaas ho mere liye meri yshi
+            dus hai tumhare liye ki Allah paak tumhe sehat rizq aur daulat de dher saara.
+            tumhari saari duayein mukammal ho, tumhe saari khushiyaa milein jiske tum 
+            haqdaar ho.
+        </p>
+
+        <p>
+            Mein tumhari ehmiyat likh kar ya bol kar bayaan nahi kar skti ki tum mere
+            liye kya maayne rkhte ho lekin i promise i will never let you down
+            mein humesha tumhare saath rahungi no matter what meri urdu thodi khasta hai
+            lekin mujhe maaf krna uske liye.
+
+        </p>
+
+        <p>
+            Tommorrow is your day, but honestly, I'm grateful that
+            you're part of my life on every other day too.
+            im sending you this today because i dont want any other person to wish
+            you before me 😤
+        </p>
+
+        <p>
+            So here's to another year of adventures, ridiculous
+            conversations, unforgettable memories and endless
+            fights.
+        </p>
+
+        <p>
+            Happy Birthday ❤️
+            I LOVE YOU 3000🫀
+        </p>
+
+        <p>
+            — Yours truly bauni
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     GIFTS
+========================= -->
+
+<section id="gifts">
+
+<div class="container">
+
+    <div class="small-text">
+        Chapter Four
+    </div>
+
+    <h2>Three Little Gifts 🎁</h2>
+
+    <p>
+        You don't know what's inside...
+    </p>
+
+    <div class="gift-grid">
+
+        <div class="gift" onclick="giftOne()">
+            🎁
+        </div>
+
+        <div class="gift" onclick="giftTwo()">
+            🎁
+        </div>
+
+        <div class="gift" onclick="giftThree()">
+            🎁
+        </div>
+
+    </div>
+
+    <div class="gift-message" id="giftMessage">
+        Choose one...
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section id="final">
+
+<div class="final-content">
+
+    <div class="small-text">
+        One Last Thing...
+    </div>
+
+    <!-- CHANGE NAME -->
+    <h1>Happy Birthday ❤️</h1>
+
+    <p class="final-message">
+        I hope this little effort of mine made you smile a bit 
+        I LOVE YOU❤️
+    </p>
+
+    <button class="main-btn" onclick="celebrate()">
+        🎉 One More Surprise
+    </button>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   START SURPRISE
+========================= */
+
+function startSurprise() {
+
+    document.getElementById("memories")
+        .scrollIntoView({ behavior: "smooth" });
+
+    createHearts();
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function checkAnswer(correct) {
+
+    const result = document.getElementById("quiz-result");
+
+    if (correct) {
+
+        result.innerHTML =
+            "Okay okay... you know me too well 😭❤️";
+
+        createHearts();
+
+    } else {
+
+        result.innerHTML =
+            "Hmmmm... yes maybe but i like something more";
+
+    }
+
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+function openLetter() {
+
+    const letter =
+        document.getElementById("letterContent");
+
+    letter.style.display = "block";
+
+    createHearts();
+
+}
+
+
+/* =========================
+   GIFTS
+========================= */
+
+function giftOne() {
+
+    document.getElementById("giftMessage").innerHTML =
+        "🎞️ Gift #1: A collection of memories that I hope you'll always keep close. ❤️";
+
+}
+
+function giftTwo() {
+
+    document.getElementById("giftMessage").innerHTML =
+        "💌 Gift #2: A reminder that you are much more special than you probably realize.";
+
+}
+
+function giftThree() {
+
+    document.getElementById("giftMessage").innerHTML =
+        "🎉 Gift #3: The biggest one is simply this... I hope this year brings you everything you've been wishing for. ❤️";
+
+    createHearts();
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+let playing = false;
+
+function toggleMusic() {
+
+    const music =
+        document.getElementById("music");
+
+    if (!music.src) {
+
+        alert(
+            "Add your music file inside the <audio> section first!"
+        );
+
+        return;
+
+    }
+
+    if (playing) {
+
+        music.pause();
+        playing = false;
+
+    } else {
+
+        music.play();
+        playing = true;
+
+    }
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHearts() {
+
+    for (let i = 0; i < 20; i++) {
+
+        setTimeout(() => {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            const emojis = [
+                "❤️",
+                "💕",
+                "💖",
+                "💗",
+                "✨",
+                "💝"
+            ];
+
+            heart.innerHTML =
+                emojis[Math.floor(Math.random() * emojis.length)];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (15 + Math.random() * 25) + "px";
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+
+        }, i * 100);
+
+    }
+
+}
+
+
+/* =========================
+   FINAL CELEBRATION
+========================= */
+
+function celebrate() {
+
+    createHearts();
+
+    for (let i = 0; i < 80; i++) {
+
+        setTimeout(() => {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.innerHTML = "🎉";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (15 + Math.random() * 30) + "px";
+
+            heart.style.animationDuration =
+                (2 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+
+        }, i * 30);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
